@@ -1,7 +1,8 @@
 import { Prisma } from "@prisma/client"
 import prisma from "./prisma"
 
-export async function getCoffees(order) {
+export async function getCoffees(sortOrder) {
+  const order = sortOrder === 'desc' ? 'desc' : 'asc'
   const allCoffees = await prisma.coffee.findMany({
     orderBy: [
       {

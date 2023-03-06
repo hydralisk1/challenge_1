@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   switch(req.method) {
     case 'GET':
       try{
-        const posts = await getPosts(req.body.order || 'asc')
+        const posts = await getPosts(req.query.order || 'asc')
         res.status(200).json({ posts })
       }catch(err) {
         res.status(500).json({ message: 'Something went wrong' })

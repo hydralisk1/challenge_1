@@ -2,7 +2,7 @@ import { getPostsByCoffee } from '@/db/post'
 
 export default async function handler(req, res) {
   if(req.method === 'GET') {
-    const { coffee, name } = req.body
+    const { coffee, name } = req.query
 
     try {
       const posts = await getPostsByCoffee({ coffee, name })

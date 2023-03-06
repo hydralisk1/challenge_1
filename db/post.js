@@ -1,8 +1,12 @@
 import { Prisma } from "@prisma/client"
 import prisma from "./prisma"
 
-export async function getPosts(order) {
+export async function getPosts(sortOrder) {
+  const order = sortOrder === 'desc' ? 'desc' : 'asc'
   const allPosts = await prisma.post.findMany({
+    include: {
+      coffeeId: true
+    },
     orderBy: [
       {
         createdAt: order
