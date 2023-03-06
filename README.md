@@ -2,7 +2,14 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, install all the dependencies with npm install and then run a migration to create your database tables with Prisma Migrate and to seed your database with some initial data. Finally, you can start the development server with npm run dev.
+First, you have to create .env file as below.
+
+  ```bash:
+  DATABASE_URL="file:./dev.db"
+  NODE_ENV="development"
+  ```
+
+And then, install all the dependencies with npm install and then run a migration to create your database tables with Prisma Migrate and to seed your database with some initial data. Finally, you can start the development server with npm run dev.
 
 ```bash:
 npm install
