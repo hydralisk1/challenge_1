@@ -1,11 +1,11 @@
 import { Prisma } from "@prisma/client"
 import prisma from "./prisma"
 
-export async function getCoffees() {
+export async function getCoffees(order) {
   const allCoffees = await prisma.coffee.findMany({
     orderBy: [
       {
-        name: 'asc'
+        name: order
       }
     ]
   })
@@ -43,13 +43,11 @@ export async function createCoffee({name, year, caffineContent, caffinePercentag
 
 export async function deleteCoffee(id) {
   try{
-    const coffee = await prisma.coffee.delete({
+    await prisma.coffee.delete({
       where: {
         id: Number(id)
       }
     })
-
-    return coffee
   }catch(e) {
     if(e instanceof Prisma.PrismaClientKnownRequestError) console.log(e.code)
     throw e

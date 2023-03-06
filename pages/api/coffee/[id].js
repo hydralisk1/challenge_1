@@ -1,4 +1,4 @@
-import { getCoffeeById } from "@/db/util"
+import { getCoffeeById } from "@/db/coffee"
 
 export default async function handler(req, res) {
   if(req.method === 'GET') {
