@@ -12,7 +12,7 @@ a {
 main {
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   padding: 1rem;
 }
 
